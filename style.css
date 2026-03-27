@@ -1,0 +1,340 @@
+:root {
+    --bg-color: #141414;
+    --text-color: #fff;
+    --card-color: #222;
+    --border-hover: #fff;
+    --toggle-bg: #fff;
+    --toggle-color: #141414;
+}
+
+body {
+    background: var(--bg-color); /* Define a cor de fundo da página */
+    color: var(--text-color); /* Define a cor do texto principal */
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif; /* Define a fonte usada no site */
+    margin: 0; /* Remove a margem padrão do body */
+    min-height: 100vh; /* Garante que o body ocupe pelo menos toda a altura da tela */
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+body.light-mode {
+    --bg-color: #f2f2f2;
+    --text-color: #1a1a1a;
+    --card-color: #000000;
+    --border-hover: #1a1a1a;
+    --toggle-bg: #1a1a1a;
+    --toggle-color: #fff;
+}
+
+body.dark-mode {
+    --bg-color: #141414;
+    --text-color: #fff;
+    --card-color: #222;
+    --border-hover: #fff;
+    --toggle-bg: #fff;
+    --toggle-color: #141414;
+}
+
+.theme-toggle-container {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.theme-toggle-container h1 {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+#themeToggle {
+    position: fixed;
+    top: 0.8rem;
+    right: 1.5rem;
+    z-index: 1000;
+    background: transparent;
+    color: inherit;
+    border: none;
+    border-radius: 50%;
+    padding: 0.15rem;
+    font-size: 2rem;
+    line-height: 1;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+#themeToggle:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+main {
+    display: flex;
+    /* Usa flexbox para layout */
+    flex-direction: column;
+    /* Organiza os elementos em coluna */
+    align-items: center;
+    /* Centraliza os itens horizontalmente */
+    justify-content: center;
+    /* Centraliza os itens verticalmente */
+    min-height: 100vh;
+    /* Garante altura mínima de 100% da tela */
+}
+
+h1 {
+    font-size: 2.5rem;
+    /* Define o tamanho da fonte do título */
+    font-weight: bold;
+    /* Deixa o texto em negrito */
+    margin-bottom: 2rem;
+    /* Espaço abaixo do título */
+    letter-spacing: 1px;
+    /* Espaçamento entre letras */
+}
+
+section[aria-label="Perfis disponíveis"] {
+    width: 100%;
+    /* Ocupa toda a largura disponível */
+    max-width: 600px;
+    /* Limita a largura máxima */
+    display: flex;
+    /* Usa flexbox */
+    justify-content: center;
+    /* Centraliza os perfis */
+}
+
+ul.profiles {
+    display: flex;
+    /* Usa flexbox para os perfis */
+    gap: 2rem;
+    /* Espaço entre os perfis */
+    list-style: none;
+    /* Remove marcadores de lista */
+    padding: 0;
+    /* Remove padding padrão */
+    margin: 0;
+    /* Remove margem padrão */
+}
+
+ul.profiles li {
+    list-style: none;
+    /* Remove marcadores de lista para itens */
+}
+
+ul.profiles ol {
+    list-style: none;
+    /* Remove marcadores de lista ordenada */
+    padding: 0;
+    /* Remove padding */
+    margin: 0;
+    /* Remove margem */
+}
+
+.profile {
+    text-decoration: none;
+    /* Remove sublinhado dos links */
+    color: var(--text-color);
+    /* Cor do texto dos links, adaptada ao tema */
+    transition: transform 0.2s, box-shadow 0.2s;
+    /* Suaviza animações de transformação e sombra */
+}
+
+body.light-mode .profile {
+    color: #000;
+    /* Nome do perfil em preto no modo claro */
+}
+
+body.dark-mode .profile {
+    color: #fff;
+    /* Nome do perfil em branco no modo escuro */
+}
+
+figure {
+    margin: 0;
+    /* Remove margem padrão */
+    display: flex;
+    /* Usa flexbox */
+    flex-direction: column;
+    /* Organiza em coluna */
+    align-items: center;
+    /* Centraliza itens */
+}
+
+img {
+    width: 120px;
+    /* Largura fixa da imagem */
+    height: 120px;
+    /* Altura fixa da imagem */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    object-fit: cover;
+    /* Mantém proporção da imagem */
+    margin-bottom: 0.5rem;
+    /* Espaço abaixo da imagem */
+    background: var(--card-color);
+    /* Cor de fundo da imagem */
+    display: block;
+    /* Exibe como bloco */
+    border: 0px solid transparent;
+    /* Borda inicial invisível, já reservada no box model */
+    box-sizing: border-box;
+    /* Garante que a borda não aumente o tamanho total */
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+img:hover {
+    /* Usa sombra e escala suave para destacar, sem impacto abaixo no layout */
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.85);
+    transform: translateY(-2px);
+}
+
+body.light-mode img:hover {
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.85);
+    border-color: transparent;
+    transform: translateY(-2px);
+}
+
+body.dark-mode img:hover {
+    border-color: transparent;
+}
+
+body.light-mode img:hover {
+    border: 1px solid #000;
+    /* Borda preta ao passar o mouse no modo claro */
+}
+
+figcaption {
+    font-size: 1.1rem;
+    /* Tamanho da fonte da legenda */
+    font-weight: 500;
+    /* Peso da fonte */
+    margin-top: 0.5rem;
+    /* Espaço acima da legenda */
+    letter-spacing: 0.5px;
+    /* Espaçamento entre letras */
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    main {
+        padding: 2rem;
+        /* Ajusta padding em telas menores */
+    }
+
+    h1 {
+        font-size: 3rem;
+        /* Reduz tamanho do título */
+        margin-bottom: 2rem;
+        /* Menor gap abaixo do título */
+        text-align: center;
+        /* Centraliza o título */
+    }
+
+    section[aria-label="Perfis disponíveis"] {
+        max-width: 100%;
+        /* Usa quase toda largura */
+    }
+
+    ul.profiles {
+        gap: 2rem;
+        /* Espaço de perfis reduzido */
+    }
+
+    img {
+        width: 150px;
+        /* Imagem menor */
+        height: 150px;
+        /* Imagem menor */
+    }
+        figcaption {
+        font-size: 1.5rem;
+        /* Legenda menor */
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        min-height: 50rem;
+        /* Ajusta altura para conteúdo */
+        padding: 2rem 1rem;
+        /* Espaçamento lateral */
+    }
+
+    h1 {
+        font-size: 2rem;
+        /* Título menor para tablets */
+        margin-bottom: 3rem;
+        /* Menor gap */
+    }
+
+    section[aria-label="Perfis disponíveis"] {
+        max-width: 100%;
+        /* Usa toda largura disponível */
+        padding: 0;
+        /* Remove padding extra */
+    }
+
+    ul.profiles {
+        gap: 1.5rem;
+        /* Menor espaçamento */
+        flex-wrap: wrap;
+        /* Quebra linhas se precisar */
+        justify-content: center;
+        /* Centraliza perfis */
+    }
+
+    .profile {
+        width: 100px;
+        /* Largura fixa para itens */
+    }
+
+    img {
+        width: 100px;
+        /* Ajuste de tamanho */
+        height: 100px;
+        /* Ajuste de tamanho */
+    }
+
+    figcaption {
+        font-size: 1.4rem;
+        /* Legenda menor */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+        /* Texto mais legível em mobile */
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        /* Título móvel mais compacto */
+        margin-bottom: 1rem;
+        /* Espaço reduzido */
+    }
+
+    ul.profiles {
+        gap: 4.1rem;
+        /* Menor espaçamento entre perfis */
+    }
+
+    img {
+        width: 90px;
+        /* Imagem bem menor */
+        height: 90px;
+        /* Imagem bem menor */
+    }
+
+    figcaption {
+        font-size: 0.95rem;
+        /* Legenda móvel */
+    }
+}
