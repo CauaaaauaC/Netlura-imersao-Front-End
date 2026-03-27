@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netflix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <main>
+    <main class="conteudo-principal">
         <div class="theme-toggle-container">
             <h1>Quem está assistindo?</h1>
             <button id="themeToggle" aria-label="Alternar entre modo escuro e claro">☀️</button>
@@ -15,40 +18,43 @@
         <section aria-label="Perfis disponíveis">
             <ul class="profiles">
                         <li>
-                            <a href="/catalogo/catalogo.html" class="profile">
-                                <figure>
-                                    <img src="/assets/perfil-1.jpg" alt="Perfil do Cauã">
+                            <a href="catalogo/catalogo.html" class="profile">
+                                <figure class="avatar-container">
+                                    <img src="assets/perfil-1.jpg" alt="Perfil do Cauã">
                                     <figcaption>Cauã</figcaption>
                                 </figure>
                             </a>
                         </li>
                         <li>
-                            <a href="/catalogo/catalogo.html" class="profile">
+                            <a href="catalogo/catalogo.html" class="profile">
                                 <figure>
-                                    <img src="/assets/perfil-2.jpg" alt="Perfil da Júlia">
+                                    <img src="assets/perfil-2.jpg" alt="Perfil da Júlia">
                                     <figcaption>Júlia</figcaption>
                                 </figure>
                             </a>
                         </li>
                         <li>
-                            <a href="/catalogo/catalogo.html" class="profile">
+                            <a href="catalogo/catalogo.html" class="profile">
                                 <figure>
-                                    <img src="/assets/perfil-3.jpg" alt="Perfil do Thiago">
+                                    <img src="assets/perfil-3.jpg" alt="Perfil do Thiago">
                                     <figcaption>Thiago</figcaption>
                                 </figure>
                             </a>
                         </li>
                         <li>
-                            <a href="/catalogo/catalogo.html" class="profile">
+                            <a href="catalogo/catalogo.html" class="profile">
                                 <figure>
-                                    <img src="/assets/perfil-4.jpg" alt="Perfil do Pedro">
+                                    <img src="assets/perfil-4.jpg" alt="Perfil do Pedro">
                                     <figcaption>Pedro</figcaption>
                                 </figure>
                             </a>
                         </li>
             </ul>
         </section>
+
     </main>
-    <script src="index.js"></script>
+
+    <script type="module" src="js/index.js"></script>
 </body>
+
 </html>
